@@ -25,10 +25,6 @@ Get your API key at [app.goalswon.com](https://app.goalswon.com) â†’ Settings â†
 Clone this repo into your skills directory:
 
 ```bash
-# Personal config
-git clone git@github.com:liamkirsh/claude-skill-goalswon.git ~/.claude-personal/skills/goalswon
-
-# Or standard Claude config
 git clone git@github.com:liamkirsh/claude-skill-goalswon.git ~/.claude/skills/goalswon
 ```
 
