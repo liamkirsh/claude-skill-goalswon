@@ -120,7 +120,7 @@ goalswon goals list --today --json
 
 **Mark a goal as done by title** (never invent IDs — resolve first):
 ```bash
-goalswon goals list --today --json | jq '.[] | select(.title | test("exercise"; "i")) | .id'
+goalswon goals list --today --json | jq '.[] | select(.name | test("exercise"; "i")) | .id'
 # then:
 goalswon goals complete <id>
 ```
