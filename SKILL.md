@@ -149,4 +149,4 @@ goalswon chat list --json | jq '.[:5]'
 
 - **Never invent IDs.** Always `list --json` first, find the ID from the output, then act.
 - **Confirm before deleting.** `goalswon goals delete <id>` is irreversible — ask the user to confirm.
-- **API key handling.** If `auth status` fails, direct the user to `app.goalswon.com > Settings > API Access` and tell them to run `! goalswon auth login <YOUR_API_KEY>` themselves (the `!` prefix runs it in their terminal). Never ask them to paste the key into chat.
+- **API key handling.** If `auth status` fails, direct the user to `app.goalswon.com > Settings > API settings` and tell them to run `! goalswon auth login <YOUR_API_KEY>` themselves (the `!` prefix runs it in their terminal). Never ask them to paste the key into chat.
