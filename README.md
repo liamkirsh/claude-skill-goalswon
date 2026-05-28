@@ -18,7 +18,7 @@ npm install -g @goalswon/cli
 goalswon auth login <YOUR_API_KEY>
 ```
 
-Get your API key at [app.goalswon.com](https://app.goalswon.com) → Settings → API Access.
+Get your API key at [app.goalswon.com](https://app.goalswon.com) → Settings → API settings.
 
 ## Install
 
