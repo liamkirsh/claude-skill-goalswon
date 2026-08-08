@@ -68,10 +68,39 @@ To make JSON permanent: `goalswon config set json true`
 
 ### Targets
 
+The CLI only supports `list` and `create`. For delete, update, get, and yearly-target linking, use the API helper script:
+
 | Command | Description |
 |---------|-------------|
 | `goalswon targets list --month YYYYMM` | Monthly targets (e.g. `202603`) |
 | `goalswon targets create "<title>" --month YYYYMM` | Create a target |
+
+## API Helper Script
+
+**Path:** `~/.claude-personal/skills/goalswon/scripts/api.py`  
+**Auto-allowed** — reads the API key from `~/.goalswon/config.json` automatically.
+
+```bash
+# Send a chat message to your coach
+python3 ~/.claude-personal/skills/goalswon/scripts/api.py chat-send "Had a great week!"
+
+# Delete a target
+python3 ~/.claude-personal/skills/goalswon/scripts/api.py targets-delete <id>
+
+# Update a target (any combination of flags)
+python3 ~/.claude-personal/skills/goalswon/scripts/api.py targets-update <id> --name "New title"
+python3 ~/.claude-personal/skills/goalswon/scripts/api.py targets-update <id> --yearly-target-id <ytid>
+python3 ~/.claude-personal/skills/goalswon/scripts/api.py targets-update <id> --yearly-target-id null  # unlink
+
+# Get a single target
+python3 ~/.claude-personal/skills/goalswon/scripts/api.py targets-get <id>
+
+# List yearly targets (to find IDs for linking)
+python3 ~/.claude-personal/skills/goalswon/scripts/api.py yearly-targets-list
+
+# Get a yearly target with all linked monthly targets
+python3 ~/.claude-personal/skills/goalswon/scripts/api.py yearly-targets-get <id>
+```
 
 ### Chat
 
@@ -79,7 +108,8 @@ To make JSON permanent: `goalswon config set json true`
 |---------|-------------|
 | `goalswon chat list` | Recent messages |
 | `goalswon chat list --search "<query>"` | Search messages |
-| `goalswon chat send "<message>" --client <id>` | Send message (coaches only) |
+
+**Note:** `goalswon chat send` requires `--client <id>` and is coaches-only. To send a message as a regular user, use the API helper script: `python3 ~/.claude-personal/skills/goalswon/scripts/api.py chat-send "<text>"`
 
 ### Clients (Coaches Only)
 
